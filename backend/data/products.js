@@ -71,6 +71,18 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    name: 'Maggi Curry Flavour Noodles - 73.00 g',
+    image: '/images/maggiCurryFlavourNoodles.png',
+    description:
+      'Maggi 2 Minute Curry Noodles are quick, convenient and delicious. Each pack brings you a taste of Malaysia and is ready in just two minutes. Maggi 2 Minute Curry Noodles come with a noodle cake and an authentic hot curry flavour sachet of mixed herbs and spices including chilli, coriander, onion and cumin; for great flavour.',
+    brand: 'Maggi',
+    category: 'Food Cupboard',
+    price: 60.00,
+    countInStock: 12,
+    rating: 4,
+    numReviews: 12,
+  },
 ]
 
 export default products
