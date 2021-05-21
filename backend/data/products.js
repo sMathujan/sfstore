@@ -1,4 +1,138 @@
 const products = [
+  // Bakery Category
+  {
+    // Bakery - 01
+    name: 'Prima Chocolate Swiss Roll - 225.00 g',
+    image: '/images/primaChocolateSwissRoll.png',
+    description:
+      'Soft sponge cake roll with chocolate frosting. *Images for illustration purposes only. Product received may vary',
+    brand: 'Prima',
+    category: 'Bakery',
+    price: 275.00,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 12,
+  },
+  {
+    // Bakery -02
+    name: 'Little Lion Chocolate Roll - 200.00 g',
+    image: '/images/littleLionChocolateRoll.png',
+    description:
+      'Soft sponge cake roll with chocolate frosting. *Images for illustration purposes only. Product received may vary',
+    brand: 'Little Lion',
+    category: 'Bakery',
+    price: 250.00,
+    countInStock: 10,
+    rating: 4.0,
+    numReviews: 12,
+  },
+  {
+    // Bakery -03
+    name: 'Finagle Sandwich Bread - 500.00 g',
+    image: '/images/finagleSandwichBread.png',
+    description:
+      'Finagle white sandwich bread. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Finagle',
+    category: 'Bakery',
+    price: 195.00,
+    countInStock: 15,
+    rating: 4.0,
+    numReviews: 15,
+  },
+  {
+    // Bakery -04
+    name: 'Tiara Vanilla Layer Cake - 480.00 g',
+    image: '/images/tiaraVanillaLayerCake.png',
+    description:
+      'Layers of soft sponge cake held together by vanilla cream. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Tiara',
+    category: 'Bakery',
+    price: 380.00,
+    countInStock: 20,
+    rating: 4.7,
+    numReviews: 15,
+  },
+  {
+    // Bakery -05
+    name: 'Tiara Chocolate Layer Cake - 480.00 g',
+    image: '/images/tiaraChocolateLayerCake.png',
+    description:
+      'Layers of soft sponge cake held together by chocolate cream. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Tiara',
+    category: 'Bakery',
+    price: 380.00,
+    countInStock: 20,
+    rating: 4.8,
+    numReviews: 18,
+  },
+  {
+    // Bakery -06
+    name: 'Tiara Chocolate Layer Cake - 320.00 g',
+    image: '/images/tiaraChocolateLayerCake320g.png',
+    description:
+      'Layers of soft sponge cake held together by chocolate cream. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Tiara',
+    category: 'Bakery',
+    price: 240.00,
+    countInStock: 20,
+    rating: 4.8,
+    numReviews: 18,
+  },
+  {
+    // Bakery -07
+    name: 'Finagle Multi Seed Bread - 200.00 g',
+    image: '/images/finagleMultiSeedBread.png',
+    description:
+      'Finagle bread consisiting of multiple seeds/grains. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Finagle',
+    category: 'Bakery',
+    price: 210.00,
+    countInStock: 30,
+    rating: 3.8,
+    numReviews: 16,
+  },
+  {
+    // Bakery -08
+    name: 'Finagle Kurakkan Diet Bread - 450.00 g',
+    image: '/images/finagleKurakkanDietBread.png',
+    description:
+      'Finagle kurakkan diet sliced bread. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Finagle',
+    category: 'Bakery',
+    price: 225.00,
+    countInStock: 30,
+    rating: 3.8,
+    numReviews: 16,
+  },
+  {
+    // Bakery -09
+    name: 'Little Lion Date Cake - 400.00 g',
+    image: '/images/littleLionDateCake.png',
+    description:
+      'Delicious and soft brown cake with real date chunks. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Little Lion',
+    category: 'Bakery',
+    price: 290.00,
+    countInStock: 30,
+    rating: 3.8,
+    numReviews: 16,
+  },
+  {
+    // Bakery -10
+    name: 'Prima Tea Bun - 75.00 g',
+    image: '/images/primaTeaBun.png',
+    description:
+      'Soft and light bun best consumed with tea. Usually slightly sweet. *Images for illustration purposes only. Product received may vary.',
+    brand: 'Prima',
+    category: 'Bakery',
+    price: 55.00,
+    countInStock: 30,
+    rating: 4.8,
+    numReviews: 10,
+  },
+
+
+
   {
     name: 'Lemon - 500.00g',
     image: '/images/lemon.png',
