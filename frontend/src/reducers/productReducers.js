@@ -16,7 +16,7 @@ default:
 }
 }
 
-export const productDetailsReducer = (state = { product: { revies: [] } }, action) => {
+export const productDetailsReducer = (state = { product: { reviews: [] } }, action) => {
 switch (action.type) {
 case PRODUCT_DETAILS_REQUSET:
     return { loading: true, ...state }
