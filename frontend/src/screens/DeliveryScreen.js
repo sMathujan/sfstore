@@ -11,13 +11,13 @@ const DeliveryScreen = ({ history }) => {
 
   const [address, setAddress] = useState(deliveryAddress.address)
   const [city, setCity] = useState(deliveryAddress.city)
-  const [gnDivision, setGNDivision] = useState(deliveryAddress.gnDivision)
+  const [dsDivision, setDSDivision] = useState(deliveryAddress.dsDivision)
 
   const dispatch = useDispatch()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(saveDeliveryAddress({ address, city, gnDivision }))
+    dispatch(saveDeliveryAddress({ address, city, dsDivision }))
     history.push('/payment')
   }
 
@@ -53,14 +53,14 @@ const DeliveryScreen = ({ history }) => {
         </div>
 
         <div class="form-group">
-        <Form.Group controlId='gnDivision'>
-          <Form.Label>GN Division</Form.Label>
+        <Form.Group controlId='dsDivision'>
+          <Form.Label>DS Division</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter Grama Niladhari Division'
-            value={gnDivision}
+            placeholder="Enter Divisional Secretary's Division"
+            value={dsDivision}
             required
-            onChange={(e) => setGNDivision(e.target.value)}
+            onChange={(e) => setDSDivision(e.target.value)}
           ></Form.Control>
         </Form.Group>
         </div>
