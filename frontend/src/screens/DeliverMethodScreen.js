@@ -3,30 +3,27 @@ import { Form, Button, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
-import { savePaymentMethod } from '../actions/cartActions'
-
-const PaymentScreen = ({ history }) => {
-  const cart = useSelector((state) => state.cart)
-  const { deliverMethod } = cart
-
-  const [paymentMethod, setPaymentMethod] = useState('PayPal')
+import { saveDeliverMethod } from '../actions/cartActions'
+  
+const DeliverMethodScreen = ({ history }) => {
+  const [deliverMethod, setDeliverMethod] = useState('Delivery')
 
   const dispatch = useDispatch()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(savePaymentMethod(paymentMethod))
-    if(deliverMethod === 'Delivery'){
-      history.push('/placeorder')
+    dispatch(saveDeliverMethod(deliverMethod))
+    if(deliverMethod == 'Delivery'){
+        history.push('/delivery')
     } else {
-      history.push('/reservepickup')
-    }
+        history.push('/pickup')
+    } 
   }
 
   return (
     <FormContainer>
-      <CheckoutSteps step1 step2 step3 step4 step5 />
-      <h1>Payment Method</h1>
+      <CheckoutSteps step1 step2 />
+      <h1>Deliver Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
           <Form.Label as='legend'>Select Method</Form.Label>
@@ -34,23 +31,23 @@ const PaymentScreen = ({ history }) => {
             <div class="form-group">
             <Form.Check
               type='radio'
-              label='PayPal or Credit Card'
-              id='PayPal'
-              name='paymentMethod'
-              value='PayPal'
+              label='Delivery'
+              id='Delivery'
+              name='deliverMethod'
+              value='Delivery'
               checked
-              onChange={(e) => setPaymentMethod(e.target.value)}
+              onChange={(e) => setDeliverMethod(e.target.value)}
             ></Form.Check>
             </div>
 
             <div class="form-group">
             <Form.Check
               type='radio'
-              label='Pay On Delivery'
-              id='Pay On Delivery'
-              name='paymentMethod'
-              value='Pay On Delivery'
-              onChange={(e) => setPaymentMethod(e.target.value)}
+              label='Pickup'
+              id='PickUP'
+              name='deliverMethod'
+              value='PickUP'
+              onChange={(e) => setDeliverMethod(e.target.value)}
             ></Form.Check> 
             </div>
           </Col>
@@ -66,4 +63,4 @@ const PaymentScreen = ({ history }) => {
   )
 }
 
-export default PaymentScreen
+export default DeliverMethodScreen

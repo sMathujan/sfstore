@@ -10,8 +10,11 @@ import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import DeliveryScreen from './screens/DeliveryScreen'
+import PickupScreen from './screens/PickupScreen'
 import PaymentScreen from './screens/PaymentScreen'
 import PlaceOrderScreen from './screens/PlaceOrderScreen'
+import ReservePickupScreen from './screens/ReservePickupScreen'
+import DeliverMethodScreen from './screens/DeliverMethodScreen'
 
 const App = () => {
   return (
@@ -19,9 +22,12 @@ const App = () => {
       <Header />
       <main className='py-3'>
         <Container>
+          <Route path='/delivermethod' component={DeliverMethodScreen} />
           <Route path='/delivery' component={DeliveryScreen} />
+          <Route path='/pickup' component={PickupScreen} />
           <Route path='/payment' component={PaymentScreen} />
           <Route path='/placeorder' component={PlaceOrderScreen} />
+          <Route path='/reservepickup' component={ReservePickupScreen} />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/profile' component={ProfileScreen} />

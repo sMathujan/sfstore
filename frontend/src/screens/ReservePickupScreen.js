@@ -8,16 +8,16 @@ import CheckoutSteps from '../components/CheckoutSteps'
 //import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 //import { USER_DETAILS_RESET } from '../constants/userConstants'
 
-const PlaceOrderScreen = ({ history }) => {
+const ReservePickupScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
 
-  {/*if (!cart.shippingAddress.address) {
+  /*if (!cart.shippingAddress.address) {
     history.push('/shipping')
   } else if (!cart.paymentMethod) {
     history.push('/payment')
-  }*/}
+  }*/
   //   Calculate prices
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2)
@@ -26,15 +26,12 @@ const PlaceOrderScreen = ({ history }) => {
   cart.itemsPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   )
-  cart.deliveryPrice = addDecimals( cart.deliveryAddress.dsDivision === 'Jaffna' ? 0 : 
-                                    cart.deliveryAddress.dsDivision === 'Nallur' ? 100 : 
-                                    cart.deliveryAddress.dsDivision === 'Kopay' ? 300 :
-                                    cart.deliveryAddress.dsDivision === 'Poit Pedro' ? 500 :
-                                    cart.deliveryAddress.dsDivision === 'Uduvil' ? 400 :
-                                    200)
+  //cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100)
+  //cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
   cart.totalPrice = (
-    Number(cart.itemsPrice) +
-    Number(cart.deliveryPrice) 
+    Number(cart.itemsPrice) 
+    //Number(cart.shippingPrice) +
+    //Number(cart.taxPrice)
   ).toFixed(2)
 
   {/*const orderCreate = useSelector((state) => state.orderCreate)
@@ -65,17 +62,17 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <>
-      <CheckoutSteps step1 step2 step3 step5 step6 />
+      <CheckoutSteps step1 step2 step4 step5 step7 />
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Delivery</h2>
+              <h2>Pickup</h2>
               <p>
-                <strong>Address: </strong>
-                {cart.deliveryAddress.address}, {cart.deliveryAddress.city} <br />
-                <strong>DS Division: </strong>
-                {cart.deliveryAddress.dsDivision}
+                <strong>Reserve Date:  </strong>
+                {cart.pickupInfo.date}{' '} <br />
+                <strong>Reserve Timeslot:  </strong>
+                {cart.pickupInfo.timeSlot}{' '}
               </p>
             </ListGroup.Item>
 
@@ -130,12 +127,12 @@ const PlaceOrderScreen = ({ history }) => {
                   <Col>Rs. {cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
+              {/*<ListGroup.Item>
                 <Row>
-                  <Col>Delivery</Col>
-                  <Col>Rs. {cart.deliveryPrice}</Col>
+                  <Col>Tax</Col>
+                  <Col>${cart.taxPrice}</Col>
                 </Row>
-              </ListGroup.Item>
+              </ListGroup.Item>*/}
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
@@ -150,10 +147,10 @@ const PlaceOrderScreen = ({ history }) => {
                 <Button
                   type='button'
                   className='btn-block'
-                  disabled={cart.itemsPrice < 3000}
+                  disabled={cart.cartItems === 0}
                   //onClick={placeOrderHandler}
                 >
-                  Place Order
+                  Pickup Order
                 </Button>
                 </center>
               </ListGroup.Item>
@@ -165,4 +162,4 @@ const PlaceOrderScreen = ({ history }) => {
   )
 }
 
-export default PlaceOrderScreen
+export default ReservePickupScreen

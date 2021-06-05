@@ -23,7 +23,7 @@ const DeliveryScreen = ({ history }) => {
 
   return (
     <FormContainer>
-      <CheckoutSteps step1 step2 />
+      <CheckoutSteps step1 step2 step3 />
       <h1>Delivery</h1>
       <Form onSubmit={submitHandler}>
         <div class="form-group">
@@ -53,20 +53,26 @@ const DeliveryScreen = ({ history }) => {
         </div>
 
         <div class="form-group">
-        <Form.Group controlId='dsDivision'>
+        <Form.Group controlId='dsDivision' >
           <Form.Label>DS Division</Form.Label>
           <Form.Control
+            as='select'
             type='text'
-            placeholder="Enter Divisional Secretary's Division"
             value={dsDivision}
             required
             onChange={(e) => setDSDivision(e.target.value)}
-          ></Form.Control>
+          >
+            <option>Jaffna</option>
+            <option>Nallur</option>
+            <option>Kopay</option>
+            <option>Poit Pedro</option>
+            <option>Uduvil</option>
+          </Form.Control>
         </Form.Group>
         </div>
 
         <div class="form-group">
-        <Button type='submit' variant='primary'>
+        <Button type='submit' variant='primary' disabled={dsDivision === 'Kayts'}>
           Continue
         </Button>
         </div>

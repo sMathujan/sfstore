@@ -27,8 +27,22 @@ const deliveryAddressFromStorage = localStorage.getItem('deliveryAddress')
     ? JSON.parse(localStorage.getItem('deliveryAddress'))
     : {}
 
+const pickupInfoFromStorage = localStorage.getItem('pickupInfo')
+    ? JSON.parse(localStorage.getItem('pickupInfo'))
+    : {}
+
+const deliverMethodFromStorage = localStorage.getItem('deliverMethod')
+    ? JSON.parse(localStorage.getItem('deliverMethod'))
+    : {}
+
+const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
+    ? JSON.parse(localStorage.getItem('paymentMethod'))
+    : {}
+
 const initialState = {
-    cart: { cartItems: cartItemsFromStorage, deliveryAddress: deliveryAddressFromStorage },
+    cart: { cartItems: cartItemsFromStorage, deliveryAddress: deliveryAddressFromStorage, 
+            pickupInfo: pickupInfoFromStorage, deliverMethod: deliverMethodFromStorage,
+            paymentMethod: paymentMethodFromStorage },
     userLogin: { userInfo: userInfoFromStorage },
 }
 
