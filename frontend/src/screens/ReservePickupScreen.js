@@ -4,7 +4,7 @@ import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
-//import { createOrder } from '../actions/orderActions'
+import { createOrder } from '../actions/orderActions'
 //import { ORDER_CREATE_RESET } from '../constants/orderConstants'
 //import { USER_DETAILS_RESET } from '../constants/userConstants'
 
@@ -34,14 +34,14 @@ const ReservePickupScreen = ({ history }) => {
     //Number(cart.taxPrice)
   ).toFixed(2)
 
-  {/*const orderCreate = useSelector((state) => state.orderCreate)
+  const orderCreate = useSelector((state) => state.orderCreate)
   const { order, success, error } = orderCreate
 
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`)
-      dispatch({ type: USER_DETAILS_RESET })
-      dispatch({ type: ORDER_CREATE_RESET })
+      //dispatch({ type: USER_DETAILS_RESET })
+      //dispatch({ type: ORDER_CREATE_RESET })
     }
     // eslint-disable-next-line
   }, [history, success])
@@ -50,15 +50,16 @@ const ReservePickupScreen = ({ history }) => {
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
-        shippingAddress: cart.shippingAddress,
+        deliverMethod: cart.deliverMethod,
+        deliveryAddress: cart.deliveryAddress,
+        pickupInfo: cart.pickupInfo,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
-        shippingPrice: cart.shippingPrice,
-        taxPrice: cart.taxPrice,
+        deliveryPrice: cart.deliveryPrice,
         totalPrice: cart.totalPrice,
       })
     )
-  }*/}
+  }
 
   return (
     <>
@@ -139,16 +140,16 @@ const ReservePickupScreen = ({ history }) => {
                   <Col>Rs. {cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {/*<ListGroup.Item>
+              <ListGroup.Item>
                 {error && <Message variant='danger'>{error}</Message>}
-              </ListGroup.Item>*/}
+              </ListGroup.Item>
               <ListGroup.Item>
                 <center>
                 <Button
                   type='button'
                   className='btn-block'
                   disabled={cart.cartItems === 0}
-                  //onClick={placeOrderHandler}
+                  onClick={placeOrderHandler}
                 >
                   Pickup Order
                 </Button>

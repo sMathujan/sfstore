@@ -25,13 +25,13 @@ const orderSchema = mongoose.Schema(
       required: true,
     },
     deliveryAddress: {
-      address: { type: String, required: true },
-      city: { type: String, required: true },
-      dsDivision: { type: String, required: true },
+      address: { type: String },
+      city: { type: String },
+      dsDivision: { type: String },
     },
     pickupInfo: {
-      date: { type: Date, required: true },
-      timeSlot: { type: String, required: true },
+      date: { type: Date },
+      timeSlot: { type: String },
     },
     paymentMethod: {
       type: String,
