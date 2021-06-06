@@ -45,7 +45,7 @@ const OrderScreen = ({ match, history }) => {
       history.push('/login')
     }*/
     dispatch(getOrderDetails(orderId))
-  }, [])
+  }, [dispatch, orderId])
 
     /*const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal')
