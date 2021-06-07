@@ -39,6 +39,7 @@ const OrderScreen = ({ match, history }) => {
     )
   }
 
+
   useEffect(() => {
     /*if (!userInfo) {
       history.push('/login')
@@ -91,7 +92,7 @@ const OrderScreen = ({ match, history }) => {
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-                <h2>Delivery</h2>
+                <h2>{order.deliverMethod}</h2>
               <p>
                 <strong>Name: </strong> {order.user.name}
               </p>
@@ -99,12 +100,44 @@ const OrderScreen = ({ match, history }) => {
                 <strong>Email: </strong>{' '}
                 <a href={`mailto:${order.user.email}`} class="text-primary" >{order.user.email}</a>
               </p>
-              <p>
-              <strong>Address: </strong>
-                {order.deliveryAddress.address}, {order.deliveryAddress.city} <br />
-                <strong>DS Division: </strong>
-                {order.deliveryAddress.dsDivision}
-              </p>
+
+              {/*(() => {
+                switch (order.shippingMethod) {
+                  case "shipping":   
+                    return 
+                    <p>
+                    <strong>Address:</strong>
+                    {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
+                    {order.shippingAddress.postalCode},{' '}
+                    {order.shippingAddress.country}
+                    </p>;
+                  case "pickup": 
+                    return 
+                      <p>
+                      <strong>Pickup:</strong>
+                      {order.pickupInfo.date},{' '}
+                      {order.pickupInfo.timeSlot}
+                      </p>;
+                  default:      
+                    return "";
+                }
+              })()*/}
+
+              {/*order.shippingMethod == 'shipping' ? (
+                <p>
+                <strong>Address:</strong>
+                {order.shippingAddress.address}, {order.shippingAddress.city}{' '}
+                {order.shippingAddress.postalCode},{' '}
+                {order.shippingAddress.country}
+                </p>
+              ) : (
+                <p>{
+                  <strong>Pickup:</strong>
+                  {//order.pickupInfo.date},{' '}
+                  {//order.pickupInfo.timeSlot}
+                }
+                </p>
+              )*/}
               
               {order.isDelivered ? (
                 <Message variant='success'>
@@ -186,7 +219,7 @@ const OrderScreen = ({ match, history }) => {
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
-                <ListGroup.Item>
+                <ListGroup.Item disabled={order.paymentMethod === 'Pay On Delivery'}>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
                     <Loader />
@@ -194,6 +227,7 @@ const OrderScreen = ({ match, history }) => {
                     <PayPalButton
                       amount={order.totalPrice}
                       onSuccess={successPaymentHandler}
+                      disabled={!order.paymentMethod === 'paypal'}
                     />
                   )}
                 </ListGroup.Item>

@@ -71,7 +71,7 @@ const ReservePickupScreen = ({ history }) => {
               <h2>Pickup</h2>
               <p>
                 <strong>Reserve Date:  </strong>
-                {cart.pickupInfo.date}{' '} <br />
+                {cart.pickupInfo.date.substring(0, 10)}{' '} <br />
                 <strong>Reserve Timeslot:  </strong>
                 {cart.pickupInfo.timeSlot}{' '}
               </p>
@@ -151,7 +151,7 @@ const ReservePickupScreen = ({ history }) => {
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
-                  Pickup Order
+                  Reserve Pickup
                 </Button>
                 </center>
               </ListGroup.Item>

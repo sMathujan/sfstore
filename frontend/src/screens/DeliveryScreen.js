@@ -65,7 +65,7 @@ const DeliveryScreen = ({ history }) => {
             <option>Jaffna</option>
             <option>Nallur</option>
             <option>Kopay</option>
-            <option>Poit Pedro</option>
+            <option>Point Pedro</option>
             <option>Uduvil</option>
           </Form.Control>
         </Form.Group>
