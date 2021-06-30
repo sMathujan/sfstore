@@ -66,7 +66,7 @@ const ProfileScreen = ({ location, history }) => {
           <Message variant='danger'>{error}</Message>
         ) : (
           <Form onSubmit={submitHandler}>
-            <div class="form-group">
+            <div className="form-group">
             <Form.Group controlId='name'>
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -78,7 +78,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
             <Form.Group controlId='mobile_number'>
               <Form.Label>Mobile Number</Form.Label>
               <Form.Control
@@ -90,7 +90,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
             <Form.Group controlId='email'>
               <Form.Label>Email Address</Form.Label>
               <Form.Control
@@ -102,7 +102,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
             <Form.Group controlId='password'>
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -114,7 +114,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
             <Form.Group controlId='confirmPassword'>
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
@@ -126,7 +126,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
             <Button type='submit' variant='primary'>
               Update
             </Button>
@@ -147,6 +147,7 @@ const ProfileScreen = ({ location, history }) => {
               <tr>
                 <th>ID</th>
                 <th>DELIVER METHOD</th>
+                <th>PAYMENT METHOD</th>
                 <th>DATE</th>
                 <th>TOTAL</th>
                 <th>PAID</th>
@@ -159,6 +160,7 @@ const ProfileScreen = ({ location, history }) => {
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.deliverMethod}</td>
+                  <td>{order.paymentMethod}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>Rs. {order.totalPrice}</td>
                   <td>
