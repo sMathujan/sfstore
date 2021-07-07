@@ -236,16 +236,18 @@ const OrderScreen = ({ match, history }) => {
               {loadingDeliver && <Loader />}
               {userInfo &&
                 userInfo.isAdmin &&
-                order.isPaid &&
+                //order.isPaid &&
                 !order.isDelivered && (
                   <ListGroup.Item>
+                    <center>
                     <Button
                       type='button'
                       className='btn btn-block'
                       onClick={deliverHandler}
                     >
-                      Mark As Delivered
+                      Mark As Delivered / Pickedup
                     </Button>
+                    </center>
                   </ListGroup.Item>
                 )}
               
