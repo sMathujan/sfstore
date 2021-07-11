@@ -4,6 +4,7 @@ import { PayPalButton } from 'react-paypal-button-v2'
 import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import Pdf from "react-to-pdf";
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails, payOrder, deliverOrder} from '../actions/orderActions'
@@ -81,12 +82,21 @@ const OrderScreen = ({ match, history }) => {
     dispatch(deliverOrder(order))
   } 
 
+  const ref = React.createRef();
+
+  const options = {
+      orientation: 'landscape',
+      unit: 'in',
+      format: [14,12]
+  };
+
   return loading ? (
     <Loader />
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
+      <div ref={ref}>
       <h1>Order {order._id}</h1>
       <Row>
         <Col md={8}>
@@ -255,6 +265,12 @@ const OrderScreen = ({ match, history }) => {
           </Card>
         </Col>
       </Row>
+      </div>
+      {userInfo.isAdmin && (
+        <Pdf targetRef={ref} filename="Order.pdf" options={options} >
+        {({ toPdf }) => <button onClick={toPdf} className="btn btn-primary">Download PDF</button>}
+      </Pdf>
+      )}
     </>
   )
 }

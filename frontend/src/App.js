@@ -22,6 +22,8 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import ProductAnalysisScreen from './screens/ProductAnalysisScreen'
+import SalesReportScreen from './screens/SalesReportScreen'
 
 const App = () => {
   /*useEffect(() => {
@@ -74,6 +76,12 @@ const App = () => {
             component={HomeScreen}
             exact
           />
+          <Route
+            path='/admin/topProductsAnalysis'
+            component={ProductAnalysisScreen}
+            exact
+          />
+          <Route path='/admin/salesReport' component={SalesReportScreen} />
           <Route path='/' component={HomeScreen} exact />
         </Container>
       </main>

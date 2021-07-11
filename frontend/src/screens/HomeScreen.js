@@ -28,6 +28,7 @@ const HomeScreen = ({ match }) => {
         <>
             <Meta />
             <center>
+            <img className='home__image' src='/images/coverPhoto.jpg'></img>
             {!keyword && <ProductCarousel />}
             </center>
             <h1>Latest Products</h1>
